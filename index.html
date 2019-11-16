@@ -16,112 +16,19 @@
 
     <main>
         <h2 class="title-santa">Entrer vos Pères Noël</h2>
-        <div class="form-santa">
-            <p>
-                Utiliser la barre d’espace ou la touche « entrer » entre les prénoms
-            </p>
-            <textarea id="content" name="content" rows="8" cols="33"></textarea>
-            <div class="button-santa">
-                <button id="button-santa" class="input-submit">Surprise</button>
+        <form>
+            <div class="form-santa">
+                <p>
+                    Utiliser la barre d’espace ou la touche « entrer » entre les prénoms
+                </p>
+                <textarea id="content" name="content" rows="8" cols="33"></textarea>
+                <div class="button-santa">
+                    <button type="submit" id="button-santa" class="input-submit">Surprise</button>
+                </div>
             </div>
-        </div>
+        </form>
 
-        <!-- <?php
-                
-                if(isset($_POST['content'])){  
-                    $strTextarea = $_POST['content'];
-                    assign($strTextarea);                    
-                }   
-
-                function debug_to_console($title, $data) {
-                    $output = $data;
-                    if (is_array($output))
-                        $output = implode(',', $output);
-                
-                    echo "<script>console.log('" . $title . " : " . $output . "' );</script>";
-                }
-
-                //function allows to assign a Santa Claus with a child()
-                function assign($stringName) {              
-                    
-                    //replace "spaces" with ";"
-                    $stringName = str_replace(' ',';', $stringName);
-
-                    //replace "end of line" with ";"
-                    $stringName = str_replace(PHP_EOL,';', $stringName);
-                    
-                    //replace ";" at the end of string by 'nothing'
-                    $stringName = preg_replace('/;$/', '', $stringName);                                
-                    
-                    
-                    //add names to 2 tables
-                    $santasName = explode(";", $stringName);
-                    $childsName = explode(";", $stringName);
-
-                    //number of element of santasName
-                    $nbSanta = sizeof($santasName)-1;                    
-                                        
-                    echo '<section class="discover-array">';                    
-
-                        echo '<div class="array-santa-name">';
-                            echo '<h2 class="title-array">Pères Noël</h2>';                             
-                            
-                            //itinerary and display the table of Santa Claus
-                            foreach ($santasName as $val) {    
-                                echo '<p class="text-array">';
-                                echo $val;
-                                echo '</p>';
-                            }                                              
-                        echo '</div>';
-
-                        echo '<div class="array-child">';
-                            echo '<h2 class="title-array">Enfants</h2>';                            
-
-                            //mixes the elements
-                            // shuffle($childsName);
-                            //itinerary and display the table of child
-                            // foreach ($childsName as $val) {    
-                            //     echo '<p class="text-array">';
-                            //     echo $val;
-                            //     echo '</p>';
-                            // }
-
-                            $idArray = array();
-                            
-                            for ($i=0; $i <= $nbSanta; $i++) { 
-                                do {
-                                    $id = rand(0, $nbSanta);  
-                                    debug_to_console("id", $id); 
-                                    debug_to_console("already", idAlreadyExist($idArray, $id));                                
-                                    debug_to_console("already", $santasName[$id] == $santasName[$i]);                                
-                                } while (idAlreadyExist($idArray, $id) || $santasName[$id] == $santasName[$i]);                                
-                                    $idArray[$i] = $id; 
-                                    debug_to_console("idArray[" . $i ."]", $idArray[$i]);                                                                                                                               
-                            }
-                            
-                            foreach ($idArray as $val) {    
-                                echo '<p class="text-array">';
-                                echo $santasName[$val];
-                                echo '</p>';
-                            }
-
-                        echo '</div>';
-
-                    echo '</section>';                    
-
-                } /** end of function assign()**/
-
-                function idAlreadyExist($idArray, $id) {
-                    foreach ($idArray as $val) {    
-                        if($val == $id) {
-                            return true;
-                        }
-                    } 
-                
-                    return false;
-                }
-                
-            ?> -->
+        <section id="santa-list" class="discover-array"></section>
     </main>
     <footer class="footer">
         <p class="text-footer">Zélo's Santa</p>
